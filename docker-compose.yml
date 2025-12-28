@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  expense-app:
+    build: .
+    container_name: expense-container
+    ports:
+      - "80:3000"  # Maps EC2 port 80 (HTTP) to Container port 3000
+    volumes:
+      - ./data:/app/data  # Persist database file
+    restart: always

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  expense-app-pipeline:
+    image: node:18-alpine   # Using standard image, not building one
+    container_name: jenkins-expense-container
+    working_dir: /app
+    ports:
+      - "8081:3000"         # Using Port 8081 as requested
+    volumes:
+      - .:/app              # "Attach a volume for the code" (Injects code from Jenkins)
+      - ./data:/app/data    # Persist database
+    command: sh -c "npm install && node server.js" # Install deps and start
+    restart: always

@@ -1,0 +1,25 @@
+body { font-family: sans-serif; background: #f4f4f9; display: flex; justify-content: center; margin-top: 50px; }
+.container { width: 400px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+.hidden { display: none; }
+
+input { width: 100%; padding: 10px; margin: 5px 0; box-sizing: border-box; }
+button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; cursor: pointer; margin-top: 5px; }
+button:hover { background: #218838; }
+.secondary-btn { background: #007bff; }
+.danger-btn { background: #dc3545; }
+.small-btn { width: auto; padding: 5px 10px; background: #666; }
+
+.cards { display: flex; justify-content: space-between; margin-bottom: 20px; gap: 5px;}
+.card { background: #eee; padding: 10px; border-radius: 5px; text-align: center; flex: 1; }
+.card h3 { font-size: 12px; margin: 0; }
+.card p { font-size: 18px; font-weight: bold; margin: 5px 0 0 0; }
+.remaining { background: #d4edda; color: #155724; }
+.expense { background: #f8d7da; color: #721c24; }
+
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.actions { border-top: 1px solid #ddd; padding-top: 15px; }
+.input-group { margin-bottom: 15px; }
+ul { list-style: none; padding: 0; max-height: 200px; overflow-y: auto; }
+li { display: flex; justify-content: space-between; padding: 8px; border-bottom: 1px solid #eee; }
+.red { color: red; }
+.green { color: green; }

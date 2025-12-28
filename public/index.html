@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="auth-section">
+            <h2>Welcome</h2>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <button onclick="login()">Login</button>
+            <button onclick="register()" class="secondary-btn">Register</button>
+            <p id="auth-msg"></p>
+        </div>
+
+        <div id="dashboard-section" class="hidden">
+            <header>
+                <h2>Hi, <span id="user-display"></span></h2>
+                <button onclick="logout()" class="small-btn">Logout</button>
+            </header>
+
+            <div class="cards">
+                <div class="card budget">
+                    <h3>Total Budget</h3>
+                    <p>$<span id="total-budget">0</span></p>
+                </div>
+                <div class="card remaining">
+                    <h3>Remaining</h3>
+                    <p>$<span id="remaining-balance">0</span></p>
+                </div>
+                <div class="card expense">
+                    <h3>Expenses</h3>
+                    <p>$<span id="total-expense">0</span></p>
+                </div>
+            </div>
+
+            <div class="actions">
+                <div class="input-group">
+                    <h4>Add Budget</h4>
+                    <input type="number" id="budget-amount" placeholder="Amount">
+                    <button onclick="addTransaction('budget')">Add Funds</button>
+                </div>
+                <div class="input-group">
+                    <h4>Add Expense</h4>
+                    <input type="text" id="expense-desc" placeholder="Description">
+                    <input type="number" id="expense-amount" placeholder="Amount">
+                    <button onclick="addTransaction('expense')" class="danger-btn">Add Expense</button>
+                </div>
+            </div>
+
+            <h3>Recent Activity</h3>
+            <ul id="transaction-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

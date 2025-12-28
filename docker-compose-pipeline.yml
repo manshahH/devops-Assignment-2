@@ -1,14 +1,30 @@
 version: '3.8'
 
 services:
+  # 1. The Application Service (Same as before)
   expense-app-pipeline:
-    image: node:18-alpine   # Using standard image, not building one
+    image: node:18-alpine
     container_name: jenkins-expense-container
     working_dir: /app
     ports:
-      - "8081:3000"         # Using Port 8081 as requested
+      - "8081:3000"
     volumes:
-      - .:/app              # "Attach a volume for the code" (Injects code from Jenkins)
-      - ./data:/app/data    # Persist database
-    command: sh -c "npm install && node server.js" # Install deps and start
+      - .:/app
+      - ./data:/app/data
+    command: sh -c "npm install && node server.js"
     restart: always
+
+  # 2. The Test Service (New!)
+  expense-tester:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: jenkins-test-runner
+    depends_on:
+      - expense-app-pipeline
+    environment:
+      # Use the container name to talk to the app
+      - APP_URL=http://expense-app-pipeline:3000
+    volumes:
+      - .:/app
+      - /app/node_modules # Prevent overwriting node_modules

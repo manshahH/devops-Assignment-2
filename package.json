@@ -14,9 +14,13 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.1",
+    "chai": "^6.2.2",
+    "chromedriver": "^143.0.3",
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
+    "mocha": "^11.7.5",
+    "selenium-webdriver": "^4.39.0",
     "sqlite3": "^5.1.7"
   }
 }

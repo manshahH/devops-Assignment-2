@@ -24,7 +24,7 @@ services:
       - expense-app-pipeline
     environment:
       # Use the container name to talk to the app
-      - APP_URL=http://expense-app-pipeline:3000
+      - APP_URL=http://jenkins-expense-container:3000
     volumes:
       - .:/app
       - /app/node_modules # Prevent overwriting node_modules

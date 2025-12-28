@@ -13,6 +13,7 @@ describe('Expense App Automation Tests', function() {
     const password = 'password123';
 
     before(async function() {
+        console.log("Testing URL:", APP_URL);
         // Setup Headless Chrome
         let options = new chrome.Options();
         options.addArguments('--headless'); // Required for EC2/Jenkins
